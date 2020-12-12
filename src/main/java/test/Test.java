@@ -5,6 +5,7 @@ package test;
 
 import com.surenpi.autotest.utils.ThreadUtil;
 import com.surenpi.autotest.webui.ui.Text;
+import org.openqa.selenium.NoSuchElementException;
 import test.page.Dashboard;
 import test.page.DevOpsProjectPage;
 import test.page.LoginPage;
@@ -44,6 +45,7 @@ public class Test {
 
         // going to devops project
         WorkspacePage workspacePage = phoenix.getPage(WorkspacePage.class);
+//        workspacePage.getSearchWS().fillValue("good").performEnter();
         workspacePage.getTargetWS().click();
         workspacePage.getDevopsProject().click();
 

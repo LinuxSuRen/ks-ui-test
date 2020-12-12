@@ -1,5 +1,8 @@
 build:
-	mvn package
+	mvn clean package -U
 
 run:
-	java -jar target/ui.test.ks-1.0.1-20170815.jar
+	java -Djava.awt.headless=true -jar target/ui.test.ks-1.0.1-20170815.jar
+
+image:
+	docker build . -t surenpi/ks-test
