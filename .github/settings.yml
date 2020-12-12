@@ -1,6 +1,6 @@
 repository:
   name: ks-ui-test
-  description: This is a template project
+  description: Kubesphere UI test
   homepage: https://github.com/linuxsuren
   private: false
   has_issues: true

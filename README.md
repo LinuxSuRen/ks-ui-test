@@ -5,3 +5,12 @@
 ![GitHub All Releases](https://img.shields.io/github/downloads/linuxsuren/ks-ui-test/total)
 
 This is not the official UI test of [Kubesphere](https://github.com/kubesphere/kubesphere/).
+
+# Run it
+
+You can run it via: `make build run`
+
+# How it works
+
+This project base on [phoenix.webui.framework](https://github.com/LinuxSuRen/phoenix.webui.framework) 
+which is a UI testing framework of [Selenium](https://github.com/SeleniumHQ/selenium).

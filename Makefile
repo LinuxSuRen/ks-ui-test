@@ -1,11 +1,5 @@
-build: fmt
-	CGO_ENABLE=0 go build -ldflags "-w -s" -o bin/github-go
+build:
+	mvn package
 
 run:
-	go run main.go
-
-fmt:
-	go fmt ./...
-
-copy: build
-	sudo cp bin/github-go /usr/local/bin/github-go
+	java -jar target/ui.test.ks-1.0.1-20170815.jar

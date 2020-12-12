@@ -4,9 +4,13 @@
 package test;
 
 import com.surenpi.autotest.utils.ThreadUtil;
-import test.page.HomePage;
+import com.surenpi.autotest.webui.ui.Text;
+import test.page.Dashboard;
+import test.page.DevOpsProjectPage;
+import test.page.LoginPage;
 import org.suren.autotest.web.framework.annotation.AutoApplication;
 import org.suren.autotest.web.framework.settings.Phoenix;
+import test.page.WorkspacePage;
 
 import java.io.IOException;
 
@@ -28,9 +32,26 @@ public class Test {
         phoenix.init();
 
         //获取Page类，然后获取对应的元素，再进行操作
-        HomePage page = phoenix.getPage(HomePage.class);
+        LoginPage page = phoenix.getPage(LoginPage.class);
         page.open();
-        page.getSearch().fillValue("demo").performEnter();
+        page.getUsername().fillValue("admin");
+        page.getPassword().fillValue("P@88w0rd");
+
+        page.getSubmit().click();
+
+        Dashboard dashboard = phoenix.getPage(Dashboard.class);
+        dashboard.getWorkspace().click();
+
+        // going to devops project
+        WorkspacePage workspacePage = phoenix.getPage(WorkspacePage.class);
+        workspacePage.getTargetWS().click();
+        workspacePage.getDevopsProject().click();
+
+        // create devops project
+        DevOpsProjectPage devopsProject = phoenix.getPage(DevOpsProjectPage.class);
+        devopsProject.getNewProject().click();
+        devopsProject.getProjectName().fillValue("test-" + System.currentTimeMillis());
+        devopsProject.getSubmit().click();
 
         ThreadUtil.silentSleep(3000);
 
