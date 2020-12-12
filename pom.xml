@@ -1,0 +1,123 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.surenpi.autotest</groupId>
+        <artifactId>autotest.parent</artifactId>
+        <version>1.0.1-20170815</version>
+    </parent>
+
+    <artifactId>ui.test.ks</artifactId>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- module inner dependency -->
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.simple</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.datasource.xml</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.datasource.yaml</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.datasource.excel</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.module</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.report.excel</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.report.database</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.report.jira</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.dynamic.xml</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.dynamic.yaml</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.webdriver</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.demo.runner</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+
+            <!--framework dependency -->
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.report.excel</artifactId>
+                <version>1.0.0-20170818-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.datasource.yaml</artifactId>
+                <version>1.0.0-20170706</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.webdriver.downloader</artifactId>
+                <version>1.0.2-20180129-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.report</artifactId>
+                <version>1.0.0-20170818-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.surenpi.autotest</groupId>
+                <artifactId>autotest.web.framework</artifactId>
+                <version>2.0.0-20170810-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.surenpi.autotest</groupId>
+            <artifactId>autotest.web.framework</artifactId>
+            <version>2.0.0-20170810-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

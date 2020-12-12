@@ -1,4 +1,4 @@
-module github.com/linuxsuren/github-go
+module github.com/linuxsuren/ks-ui-test
 
 go 1.15
 
