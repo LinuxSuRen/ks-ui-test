@@ -18,7 +18,7 @@ import org.suren.autotest.web.framework.selenium.WebPage;
  * @author suren
  * @date Jul 23, 2016 4:41:16 PM
  */
-@AutoPage(maximize = true, startPage = true)
+@AutoPage(maximize = false, startPage = true)
 public class LoginPage extends WebPage
 {
 	@AutoLocator(locator = LocatorType.BY_ID, value = "username")
