@@ -4,7 +4,8 @@
 [![GitHub release](https://img.shields.io/github/release/linuxsuren/ks-ui-test.svg?label=release)](https://github.com/linuxsuren/github-go/releases/latest)
 ![GitHub All Releases](https://img.shields.io/github/downloads/linuxsuren/ks-ui-test/total)
 
-This is not the official UI test of [Kubesphere](https://github.com/kubesphere/kubesphere/).
+This is not the official UI test for [Kubesphere](https://github.com/kubesphere/kubesphere/). I created this only for someone 
+who might want to have less simple and meaningless work with developing Kubesphere.
 
 # Run it
 

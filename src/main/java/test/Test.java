@@ -1,11 +1,8 @@
-/**
- * http://surenpi.com
- */
 package test;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
 import com.surenpi.autotest.utils.ThreadUtil;
-import com.surenpi.autotest.webui.ui.Text;
-import org.openqa.selenium.NoSuchElementException;
 import test.page.Dashboard;
 import test.page.DevOpsProjectPage;
 import test.page.LoginPage;
@@ -16,7 +13,7 @@ import test.page.WorkspacePage;
 import java.io.IOException;
 
 /**
- * AutoTest框架的一个简单示例</br>
+ * UI test for Kubesphere</br>
  * @author suren
  * @date 2016年12月13日 下午7:52:06
  */
@@ -29,23 +26,25 @@ public class Test {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
+        // receive parameters from CLI
+        EntryParam entryParam = new Test().getEntryParam(args);
+
         Phoenix phoenix = new Phoenix(Test.class);
         phoenix.init();
 
         //获取Page类，然后获取对应的元素，再进行操作
-        LoginPage page = phoenix.getPage(LoginPage.class);
-        page.open();
-        page.getUsername().fillValue("admin");
-        page.getPassword().fillValue("P@88w0rd");
-
-        page.getSubmit().click();
+        LoginPage loginPage = phoenix.getPage(LoginPage.class);
+        loginPage.setUrl(entryParam.url);
+        loginPage.open();
+        loginPage.getUsername().fillValue(entryParam.username);
+        loginPage.getPassword().fillValue(entryParam.password);
+        loginPage.getSubmit().click();
 
         Dashboard dashboard = phoenix.getPage(Dashboard.class);
         dashboard.getWorkspace().click();
 
         // going to devops project
         WorkspacePage workspacePage = phoenix.getPage(WorkspacePage.class);
-//        workspacePage.getSearchWS().fillValue("good").performEnter();
         workspacePage.getTargetWS().click();
         workspacePage.getDevopsProject().click();
 
@@ -60,4 +59,20 @@ public class Test {
         phoenix.close(); //关闭框架
     }
 
+    private EntryParam getEntryParam(String []args) {
+        EntryParam entryParam = new EntryParam();
+        JCommander.Builder builder = JCommander.newBuilder();
+        JCommander commander = builder.addObject(entryParam).build();
+        commander.parse(args);
+        return entryParam;
+    }
+}
+
+class EntryParam {
+    @Parameter(names = "-url", description = "kubesphere url", required = true)
+    public String url;
+    @Parameter(names = "-username", description = "username")
+    public String username = "admin";
+    @Parameter(names = "-password", description = "password", password = true)
+    public String password = "P@88w0rd";
 }
