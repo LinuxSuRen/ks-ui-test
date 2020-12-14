@@ -3,12 +3,10 @@ package test;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.surenpi.autotest.utils.ThreadUtil;
-import test.page.Dashboard;
-import test.page.DevOpsProjectPage;
-import test.page.LoginPage;
+import com.surenpi.autotest.webui.ui.AbstractElement;
+import test.page.*;
 import org.suren.autotest.web.framework.annotation.AutoApplication;
 import org.suren.autotest.web.framework.settings.Phoenix;
-import test.page.WorkspacePage;
 
 import java.io.IOException;
 
@@ -49,10 +47,37 @@ public class Test {
         workspacePage.getDevopsProject().click();
 
         // create devops project
+        String devopsProjectName = "test-" + System.currentTimeMillis();
         DevOpsProjectPage devopsProject = phoenix.getPage(DevOpsProjectPage.class);
         devopsProject.getNewProject().click();
-        devopsProject.getProjectName().fillValue("test-" + System.currentTimeMillis());
+        devopsProject.getProjectName().fillValue(devopsProjectName);
         devopsProject.getSubmit().click();
+
+        // search target project
+        devopsProject.getSearch().fillValue(devopsProjectName).performEnter();
+        devopsProject.getNewProject().getClickAble().click(new AbstractElement() {
+            @Override
+            public String getLinkText() {
+                return devopsProjectName;
+            }
+
+            @Override
+            public boolean isEnabled() {
+                return false;
+            }
+
+            @Override
+            public boolean isHidden() {
+                return false;
+            }
+        });
+
+        String pipName = "pip-" + System.currentTimeMillis();
+        PipelinePage pipPage = phoenix.getPage(PipelinePage.class);
+        pipPage.getCreateButton().click();
+        pipPage.getName().fillValue(pipName);
+        pipPage.getNextButton().click();
+        pipPage.getSaveButton().click();
 
         ThreadUtil.silentSleep(3000);
 

@@ -4,6 +4,9 @@ build:
 run:
 	@java -Djava.awt.headless=true -jar target/ui.test.ks-1.0.1-20170815.jar -url ${KS} -password ${KS_PASS}
 
+java:
+	java -classpath target/classes:${CLASSPATH}:${shell pwd}/target/lib test.Test
+
 image:
 	docker build . -t surenpi/ks-test
 
