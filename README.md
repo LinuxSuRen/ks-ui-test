@@ -18,6 +18,10 @@ Or, you can also run it in a container with a headless browser: `make build imag
 This project base on [phoenix.webui.framework](https://github.com/LinuxSuRen/phoenix.webui.framework) 
 which is a UI testing framework of [Selenium](https://github.com/SeleniumHQ/selenium).
 
+# Run in container
+
+`docker run --rm registry.cn-beijing.aliyuncs.com/surenpi/ks-ui-test -url ${KS} -user ${KS_USER} -password ${KS_PASS}`
+
 # Run in Jenkins
 
 First, Start Jenkins via: `jcli center start`. Then config [jcli](https://github.com/jenkins-zh/jenkins-cli) if you've done it before.

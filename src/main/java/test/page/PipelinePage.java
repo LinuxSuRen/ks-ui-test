@@ -39,6 +39,19 @@ public class PipelinePage extends WebPage {
     @AutoData("save pipeline button")
     private Button saveButton;
 
+    @AutoLocators(strategy = StrategyType.CYLE, locators = {
+            @AutoLocator(locator = LocatorType.BY_XPATH, value = "//div[contains(text(),'运行')]", timeout = 3),
+            @AutoLocator(locator = LocatorType.BY_XPATH, value = "//div[contains(text(),'Run')]", timeout = 3)
+    })
+    @AutoData("run pipeline")
+    private Button run;
+    @AutoLocators(strategy = StrategyType.CYLE, locators = {
+            @AutoLocator(locator = LocatorType.BY_LINK_TEXT, value = "活动", timeout = 3),
+            @AutoLocator(locator = LocatorType.BY_LINK_TEXT, value = "Activity", timeout = 3)
+    })
+    @AutoData("activity button")
+    private Button activityBut;
+
     public Button getCreateButton() {
         return createButton;
     }
@@ -69,5 +82,21 @@ public class PipelinePage extends WebPage {
 
     public void setSaveButton(Button saveButton) {
         this.saveButton = saveButton;
+    }
+
+    public Button getRun() {
+        return run;
+    }
+
+    public void setRun(Button run) {
+        this.run = run;
+    }
+
+    public Button getActivityBut() {
+        return activityBut;
+    }
+
+    public void setActivityBut(Button activityBut) {
+        this.activityBut = activityBut;
     }
 }

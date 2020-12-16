@@ -27,7 +27,7 @@ public class LoginPage extends WebPage
 	@AutoLocator(locator = LocatorType.BY_ID, value = "password")
 	@AutoData(value = "password field")
 	private Text password;
-	@AutoLocator(locator = LocatorType.BY_CSS, value = "submit")
+	@AutoLocator(locator = LocatorType.BY_XPATH, value = "//button[@type='submit']")
 	@AutoData(value = "login button")
 	private Button submit;
 

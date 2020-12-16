@@ -4,6 +4,7 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.surenpi.autotest.utils.ThreadUtil;
 import com.surenpi.autotest.webui.ui.AbstractElement;
+import test.module.PipelineModule;
 import test.page.*;
 import org.suren.autotest.web.framework.annotation.AutoApplication;
 import org.suren.autotest.web.framework.settings.Phoenix;
@@ -73,11 +74,9 @@ public class Test {
         });
 
         String pipName = "pip-" + System.currentTimeMillis();
-        PipelinePage pipPage = phoenix.getPage(PipelinePage.class);
-        pipPage.getCreateButton().click();
-        pipPage.getName().fillValue(pipName);
-        pipPage.getNextButton().click();
-        pipPage.getSaveButton().click();
+        PipelineModule pipelineModule = phoenix.getModule(PipelineModule.class);
+        pipelineModule.create(pipName);
+        pipelineModule.execute(pipName);
 
         ThreadUtil.silentSleep(3000);
 
