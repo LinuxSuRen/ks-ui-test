@@ -5,10 +5,14 @@
     <parent>
         <groupId>com.surenpi.autotest</groupId>
         <artifactId>autotest.parent</artifactId>
-        <version>1.0.1-20170815</version>
+        <version>1.0.1-20170818</version>
     </parent>
 
     <artifactId>ui.test.ks</artifactId>
+
+    <properties>
+<!--        <selenium.version>3.141.59</selenium.version>-->
+    </properties>
 
     <build>
         <plugins>
@@ -58,68 +62,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- module inner dependency -->
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.simple</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.datasource.xml</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.datasource.yaml</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.datasource.excel</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.module</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.report.excel</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.report.database</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.report.jira</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.dynamic.xml</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.dynamic.yaml</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.webdriver</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.surenpi.autotest</groupId>
-                <artifactId>autotest.demo.runner</artifactId>
-                <version>${demo.version}</version>
-            </dependency>
-
             <!--framework dependency -->
             <dependency>
                 <groupId>com.surenpi.autotest</groupId>
@@ -129,7 +71,7 @@
             <dependency>
                 <groupId>com.surenpi.autotest</groupId>
                 <artifactId>autotest.datasource.yaml</artifactId>
-                <version>1.0.0-20170706</version>
+                <version>1.0.2-SNAPSHOT</version>
             </dependency>
 
             <dependency>
@@ -147,6 +89,12 @@
                 <artifactId>autotest.web.framework</artifactId>
                     <version>2.0.0-20170810-SNAPSHOT</version>
             </dependency>
+
+<!--            <dependency>-->
+<!--                <groupId>com.google.guava</groupId>-->
+<!--                <artifactId>guava</artifactId>-->
+<!--                <version>23.0</version>-->
+<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -156,5 +104,16 @@
             <artifactId>autotest.web.framework</artifactId>
             <version>2.0.0-20170810-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.surenpi.autotest</groupId>
+            <artifactId>autotest.datasource.yaml</artifactId>
+            <version>1.0.2-SNAPSHOT</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.google.guava</groupId>-->
+<!--            <artifactId>guava</artifactId>-->
+<!--            <version>23.0</version>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

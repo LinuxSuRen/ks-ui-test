@@ -33,6 +33,7 @@ public class DevOpsProjectPage extends WebPage {
     // list
     @AutoLocators(strategy = StrategyType.CYLE, locators = {
             @AutoLocator(locator = LocatorType.BY_XPATH, value = "//input[@placeholder='请输入关键字进行查找']", timeout = 3),
+            @AutoLocator(locator = LocatorType.BY_XPATH, value = "//input[@placeholder='请输入名称进行查找']", timeout = 3),
             @AutoLocator(locator = LocatorType.BY_XPATH, value = "//input[@placeholder='Search by name']", timeout = 3),
             @AutoLocator(locator = LocatorType.BY_XPATH, value = "//input[@placeholder='Search by keyword']", timeout = 3)
     })

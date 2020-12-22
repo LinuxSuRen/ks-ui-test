@@ -4,6 +4,7 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.surenpi.autotest.utils.ThreadUtil;
 import com.surenpi.autotest.webui.ui.AbstractElement;
+import org.openqa.selenium.JavascriptExecutor;
 import test.module.PipelineModule;
 import test.page.*;
 import org.suren.autotest.web.framework.annotation.AutoApplication;
@@ -31,10 +32,12 @@ public class Test {
         Phoenix phoenix = new Phoenix(Test.class);
         phoenix.init();
 
+
         //获取Page类，然后获取对应的元素，再进行操作
         LoginPage loginPage = phoenix.getPage(LoginPage.class);
         loginPage.setUrl(entryParam.url);
         loginPage.open();
+
         loginPage.getUsername().fillValue(entryParam.username);
         loginPage.getPassword().fillValue(entryParam.password);
         loginPage.getSubmit().click();
@@ -92,11 +95,3 @@ public class Test {
     }
 }
 
-class EntryParam {
-    @Parameter(names = "-url", description = "kubesphere url", required = true)
-    public String url;
-    @Parameter(names = "-username", description = "username")
-    public String username = "admin";
-    @Parameter(names = "-password", description = "password", password = true)
-    public String password = "P@88w0rd";
-}

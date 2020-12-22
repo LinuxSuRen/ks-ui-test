@@ -12,7 +12,7 @@ import org.suren.autotest.web.framework.selenium.WebPage;
 @AutoPage
 public class Dashboard extends WebPage {
     @AutoLocators(strategy = StrategyType.CYLE, locators = {
-            @AutoLocator(locator = LocatorType.BY_XPATH, value = "//p[contains(text(),'企业空间')]", timeout = 9),
+            @AutoLocator(locator = LocatorType.BY_XPATH, value = "//p[contains(text(),'企业空间')]", lang = "zh-CN"),
             @AutoLocator(locator = LocatorType.BY_XPATH, value = "//p[contains(text(),'Workspaces')]", timeout = 9)
     })
     @AutoData(value = "open workspace button")

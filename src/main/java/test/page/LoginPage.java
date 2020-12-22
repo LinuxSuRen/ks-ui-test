@@ -1,16 +1,10 @@
-/**
- * http://surenpi.com
- */
 package test.page;
 
+import com.surenpi.autotest.datasource.DataSourceConstants;
 import com.surenpi.autotest.webui.core.LocatorType;
-import com.surenpi.autotest.webui.core.StrategyType;
 import com.surenpi.autotest.webui.ui.Button;
 import com.surenpi.autotest.webui.ui.Text;
-import org.suren.autotest.web.framework.annotation.AutoData;
-import org.suren.autotest.web.framework.annotation.AutoLocator;
-import org.suren.autotest.web.framework.annotation.AutoLocators;
-import org.suren.autotest.web.framework.annotation.AutoPage;
+import org.suren.autotest.web.framework.annotation.*;
 import org.suren.autotest.web.framework.selenium.WebPage;
 
 /**
@@ -18,6 +12,7 @@ import org.suren.autotest.web.framework.selenium.WebPage;
  * @author suren
  * @date Jul 23, 2016 4:41:16 PM
  */
+@AutoDataSource(resource = "login.data.yml", type = DataSourceConstants.DS_TYPE_YAML)
 @AutoPage(maximize = false, startPage = true)
 public class LoginPage extends WebPage
 {

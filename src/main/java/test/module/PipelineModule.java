@@ -3,10 +3,12 @@ package test.module;
 import com.surenpi.autotest.webui.ui.AbstractElement;
 import org.suren.autotest.web.framework.annotation.AutoField;
 import org.suren.autotest.web.framework.annotation.AutoModule;
+import org.suren.autotest.web.framework.annotation.AutoPage;
 import test.page.ListComponent;
 import test.page.PipelinePage;
 
 @AutoModule(name = "流水线")
+@AutoPage
 public class PipelineModule {
     @AutoField
     private PipelinePage pipPage;
@@ -22,12 +24,12 @@ public class PipelineModule {
 
     public void execute(String pipName) {
         listComponent.getSearch().fillValue(pipName).performEnter();
-        choseByName(pipName);
+        chooseByName(pipName);
         pipPage.getActivityBut().click();
         pipPage.getRun().click();
     }
 
-    public void choseByName(String name) {
+    public void chooseByName(String name) {
         pipPage.getSaveButton().getClickAble().click(new AbstractElement() {
             @Override
             public String getLinkText() {
