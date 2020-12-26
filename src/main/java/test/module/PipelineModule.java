@@ -4,6 +4,7 @@ import com.surenpi.autotest.webui.ui.AbstractElement;
 import org.suren.autotest.web.framework.annotation.AutoField;
 import org.suren.autotest.web.framework.annotation.AutoModule;
 import org.suren.autotest.web.framework.annotation.AutoPage;
+import org.suren.autotest.web.framework.annotation.AutoReporter;
 import test.page.ListComponent;
 import test.page.PipelinePage;
 
@@ -15,6 +16,7 @@ public class PipelineModule {
     @AutoField
     private ListComponent listComponent;
 
+    @AutoReporter
     public void create(String pipName) {
         pipPage.getCreateButton().click();
         pipPage.getName().fillValue(pipName);
@@ -22,6 +24,7 @@ public class PipelineModule {
         pipPage.getSaveButton().click();
     }
 
+    @AutoReporter
     public void execute(String pipName) {
         listComponent.getSearch().fillValue(pipName).performEnter();
         chooseByName(pipName);

@@ -5,6 +5,7 @@ import com.beust.jcommander.Parameter;
 import com.surenpi.autotest.utils.ThreadUtil;
 import com.surenpi.autotest.webui.ui.AbstractElement;
 import org.openqa.selenium.JavascriptExecutor;
+import org.suren.autotest.web.framework.annotation.AutoReporter;
 import test.module.PipelineModule;
 import test.page.*;
 import org.suren.autotest.web.framework.annotation.AutoApplication;

@@ -1,1 +1,5 @@
 test.page.LoginPage:
+  username: admin
+  password: admin
+#  username: rickzhao@yunify.com
+#  password: 123QWEasd

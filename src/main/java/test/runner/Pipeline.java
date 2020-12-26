@@ -5,7 +5,9 @@ import com.surenpi.autotest.webui.ui.AbstractElement;
 import org.suren.autotest.web.framework.annotation.AutoField;
 import org.suren.autotest.web.framework.annotation.AutoPage;
 import org.suren.autotest.web.framework.runner.Runner;
+import test.module.LoginModule;
 import test.module.PipelineModule;
+import test.module.WorkspaceModule;
 import test.page.Dashboard;
 import test.page.DevOpsProjectPage;
 import test.page.LoginPage;
@@ -15,7 +17,7 @@ import test.page.WorkspacePage;
 @AutoPage
 public class Pipeline implements Runner {
     @AutoField
-    private LoginPage loginPage;
+    private LoginModule loginModule;
     @AutoField
     private Dashboard dashboard;
     @AutoField
@@ -24,44 +26,43 @@ public class Pipeline implements Runner {
     private DevOpsProjectPage devopsProject;
     @AutoField
     private PipelineModule pipelineModule;
+    @AutoField
+    private WorkspaceModule workspaceModule;
 
     public void createPipeline() {
-        loginPage.open();
+        loginModule.login();
 
-        loginPage.getUsername().fillValue();//entryParam.username);
-        loginPage.getPassword().fillValue();//entryParam.password);
-        loginPage.getSubmit().click();
-
-        dashboard.urlNotContains("login");
-        if (!"https://console.kubesphere.io/access/workspaces".equals(dashboard.getCurrentUrl())) {
-            dashboard.getWorkspace().click();
-        }
-
-        // going to devops project
-        String wsName = "ws-" + System.currentTimeMillis();
-        workspacePage.getCreateButton().click();
-        workspacePage.getWsName().fillValue(wsName);
-        workspacePage.getWsConfirmButton().click();
-
-        workspacePage.getSearchWS().fillValue(wsName).performEnter();
-        ThreadUtil.silentSleep(3000);
-        workspacePage.getTargetWS().getClickAble().click(new AbstractElement() {
-            @Override
-            public String getLinkText() {
-                return wsName;
-            }
-
-            @Override
-            public boolean isEnabled() {
-                return false;
-            }
-
-            @Override
-            public boolean isHidden() {
-                return false;
-            }
-        });
-        workspacePage.getDevopsProject().click();
+        workspaceModule.create();
+//        dashboard.urlNotContains("login");
+//        if (!"https://console.kubesphere.io/access/workspaces".equals(dashboard.getCurrentUrl())) {
+//            dashboard.getWorkspace().click();
+//        }
+//
+//        // going to devops project
+//        String wsName = "ws-" + System.currentTimeMillis();
+//        workspacePage.getCreateButton().click();
+//        workspacePage.getWsName().fillValue(wsName);
+//        workspacePage.getWsConfirmButton().click();
+//
+//        workspacePage.getSearchWS().fillValue(wsName).performEnter();
+//        ThreadUtil.silentSleep(3000);
+//        workspacePage.getTargetWS().getClickAble().click(new AbstractElement() {
+//            @Override
+//            public String getLinkText() {
+//                return wsName;
+//            }
+//
+//            @Override
+//            public boolean isEnabled() {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean isHidden() {
+//                return false;
+//            }
+//        });
+//        workspacePage.getDevopsProject().click();
 
         // create devops project
         String devopsProjectName = "test-" + System.currentTimeMillis();

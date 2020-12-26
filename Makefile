@@ -13,6 +13,7 @@ init-engine:
 
 image:
 	docker build . -t surenpi/ks-test
+	docker push surenpi/ks-test
 
 image-beijing:
 	docker build . -t registry.cn-beijing.aliyuncs.com/surenpi/ks-ui-test
